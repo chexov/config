@@ -26,6 +26,15 @@
 #define DEFAULT_RX_FEATURE            FEATURE_RX_SERIAL
 #define DEFAULT_FEATURES              (FEATURE_TELEMETRY | FEATURE_OSD | FEATURE_RX_MSP)
 
+#define USE_CHIRP
+
+#define USE_RACE_PRO
+//#define DEFAULT_SMALL_ANGLE 180
+//#define DEFAULT_FAILSAFE_RECOVERY_DELAY 1            // 100ms of valid rx data needed to allow recovery from failsafe and arming block
+
+#define USE_ALTITUDE_HOLD
+#define USE_POSITION_HOLD
+
 #define USE_GYRO
 #define USE_ACC
 #define USE_BARO
@@ -39,10 +48,6 @@
 #define USE_LED_STRIP
 #define USE_SERVOS
 
-#define USE_RACE_PRO
-
-#define USE_ALTITUDE_HOLD
-#define USE_POSITION_HOLD
 
 #define USE_GYRO_SPI_ICM42688P
 #define USE_ACC_SPI_ICM42688P
@@ -53,6 +58,8 @@
 
 #define FC_TARGET_MCU STM32F7X2
 #define SYSTEM_HSE_MHZ 16
+#define HSE_VALUE_MHZ 16
+
 
 //#define USE_BOARD_INFO
 #define BOARD_NAME KIWIF7
@@ -190,3 +197,4 @@
 #define VTX_SMARTAUDIO_UART     SERIAL_PORT_UART4
 #define MSP_UART                SERIAL_PORT_UART5
 #define ESC_SENSOR_UART         SERIAL_PORT_UART6
+
