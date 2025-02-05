@@ -29,8 +29,8 @@
 //#define USE_CHIRP
 
 #define USE_RACE_PRO
-//#define DEFAULT_SMALL_ANGLE 180
-//#define DEFAULT_FAILSAFE_RECOVERY_DELAY 1            // 100ms of valid rx data needed to allow recovery from failsafe and arming block
+#define DEFAULT_SMALL_ANGLE 180
+#define DEFAULT_FAILSAFE_RECOVERY_DELAY 1            // 100ms of valid rx data needed to allow recovery from failsafe and arming block
 
 #define USE_ALTITUDE_HOLD
 #define USE_POSITION_HOLD
@@ -44,6 +44,7 @@
 #define USE_GPS
 #define USE_TELEMETRY
 #define USE_RX_MSP
+#define USE_RX_RSSI_DBM
 #define USE_OSD
 #define USE_LED_STRIP
 #define USE_SERVOS
@@ -91,8 +92,8 @@
 #define I2C1_SCL_PIN PB8
 #define I2C1_SDA_PIN PB9
 
-#define LED0_PIN PB1
-#define LED1_PIN PB0
+#define LED0_PIN PB1 // LED_STATUS
+#define LED1_PIN PB0 // RGB
 
 #define SPI1_SCK_PIN PA5    // SPI1_CLK
 #define SPI1_SDI_PIN PA6    // SPI1_MISO
@@ -116,7 +117,7 @@
 //#define PIN_PULL_UP_DOWN_COUNT 4
 #define USE_PINIO
 #define USE_PINIOBOX
-#define PINIO_COUNT 10
+//#define PINIO_COUNT 10
 
 #define PINIO1_PIN NONE //
 #define PINIO2_PIN PC15 //  PIN_PARACHUTE_SAFETY
@@ -143,7 +144,7 @@
 #define PINIO1_CONFIG PINIO_CONFIG_MODE_OUT_PP
 #define PINIO2_CONFIG PINIO_CONFIG_MODE_OUT_PP
 #define PINIO3_CONFIG PINIO_CONFIG_MODE_OUT_PP
-#define PINIO4_CONFIG PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED // VBAT enable, active low
+#define PINIO4_CONFIG (PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED) // VBAT enable, active low
 
 #define PINIO5_CONFIG PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED // VTX2 VBAT enable, active low
 #define PINIO6_CONFIG PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED // VBAT enable, active low
@@ -191,7 +192,7 @@
     TIMER_PIN_MAP( 5,  SERVO2_PIN,  1, -1 )
 
 
-#define SERIALRX_PROVIDER SERIALRX_CRSF
+#define SERIALRX_PROVIDER       SERIALRX_CRSF
 #define SERIALRX_UART           SERIAL_PORT_UART2
 #define VTX_SMARTAUDIO_UART     SERIAL_PORT_UART4
 #define MSP_UART                SERIAL_PORT_UART5
