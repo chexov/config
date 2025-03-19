@@ -24,7 +24,7 @@
 #define FC_TARGET_MCU STM32F7X2
 #define SYSTEM_HSE_MHZ 16
 
-#define BOARD_NAME KIWIF7
+#define BOARD_NAME KIWIF7V1
 #define MANUFACTURER_ID KAPO
 #define TARGET_BOARD_IDENTIFIER "KWF7"
 #define USBD_PRODUCT_STRING     "Kaponga KIWI F7"
@@ -33,8 +33,8 @@
 #define DEFAULT_SMALL_ANGLE 180
 #define DEFAULT_FAILSAFE_RECOVERY_DELAY 1            // 100ms of valid rx data needed to allow recovery from failsafe and arming block
 
-#define USE_GPS
-#define USE_POSITION_HOLD
+//#define USE_GPS
+//#define USE_POSITION_HOLD
 
 #define USE_GYRO
 #define USE_ACC
@@ -137,7 +137,10 @@
 #define PINIO1_CONFIG PINIO_CONFIG_MODE_OUT_PP
 #define PINIO2_CONFIG PINIO_CONFIG_MODE_OUT_PP
 #define PINIO3_CONFIG PINIO_CONFIG_MODE_OUT_PP
-#define PINIO4_CONFIG (PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED) // VBAT enable, active low
+// VTX off by default
+//#define PINIO4_CONFIG (PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED) // VBAT enable, active low
+// VTX on by default
+#define PINIO4_CONFIG PINIO_CONFIG_MODE_OUT_PP // VBAT enable, active low
 
 #define PINIO5_CONFIG PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED // VTX2 VBAT enable, active low
 #define PINIO6_CONFIG PINIO_CONFIG_MODE_OUT_PP | PINIO_CONFIG_OUT_INVERTED // VBAT enable, active low
@@ -185,6 +188,8 @@
     TIMER_PIN_MAP( 4,  SERVO1_PIN,  1, -1 ) \
     TIMER_PIN_MAP( 5,  SERVO2_PIN,  1, -1 )
 
+
+#define DEFAULT_DSHOT_BURST DSHOT_DMAR_ON
 
 #define SERIALRX_PROVIDER       SERIALRX_CRSF
 #define SERIALRX_UART           SERIAL_PORT_UART2
