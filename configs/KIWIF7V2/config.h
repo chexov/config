@@ -27,12 +27,16 @@
 #define BOARD_NAME KIWIF7
 #define MANUFACTURER_ID KAPO
 #define TARGET_BOARD_IDENTIFIER "KWF7"
-#define USBD_PRODUCT_STRING     "Kaponga KIWI F7"
+#define USBD_PRODUCT_STRING     "Kaponga KIWI F7V1"
 
 #define USE_RACE_PRO
 #define DEFAULT_SMALL_ANGLE 180
 #define DEFAULT_FAILSAFE_RECOVERY_DELAY 1            // 100ms of valid rx data needed to allow recovery from failsafe and arming block
 
+
+
+//#define USE_WING
+#define USE_ESAD
 
 #define USE_GPS
 #define USE_POSITION_HOLD
@@ -107,14 +111,21 @@
 
 #define RELAY1_PIN PC14   //   PIN_VTX_PWR_CTRL1
 #define RELAY2_PIN PC13   //   PIN_VTX_PWR_CTRL2
+#define CAM_SWITCH_PIN PA13 //  PIN_CAMERA_SWITCH
 
 #define USE_PINIO
 #define USE_PINIOBOX
+#define USE_CUSTOM_BOX_NAMES
 
 #define PINIO1_PIN NONE //
-#define PINIO2_PIN PC2 //  PIN_PARACHUTE_SAFETY
-#define PINIO3_PIN PA13 //  PIN_CAMERA_SWITCH
-#define PINIO4_PIN RELAY1_PIN
+// #define PINIO2_PIN PC2 //  PIN_PARACHUTE_SAFETY
+// #define PINIO3_PIN CAM_SWITCH_PIN
+// #define PINIO4_PIN RELAY1_PIN
+
+#define PINIO2_PIN CAM_SWITCH_PIN
+#define PINIO3_PIN RELAY1_PIN
+#define PINIO4_PIN RELAY2_PIN
+
 
 //#define PINIO_COUNT 10
 //#define PINIO5_PIN RELAY2_PIN
@@ -125,7 +136,7 @@
 //PC2   PIN_REMOVE_BEFORE_FLIGHT_SAFETY_CHECK
 
 
-#define PINIO1_BOX 40 // User 1
+#define PINIO1_BOX 40 // user
 #define PINIO2_BOX 41 // User 2; Parachute safety
 #define PINIO3_BOX 42 // User 3; Camera switch
 #define PINIO4_BOX 43 // User 4; Turn VTX1 on/off
@@ -192,6 +203,7 @@
 
 #define VTX_SMARTAUDIO_UART     SERIAL_PORT_UART1
 #define SERIALRX_UART           SERIAL_PORT_UART2
-
+// #define GPS_UART               SERIAL_PORT_UART3
+#define ESAD_UART               SERIAL_PORT_UART4
 #define MSP_UART                SERIAL_PORT_UART5
 #define ESC_SENSOR_UART         SERIAL_PORT_UART6
