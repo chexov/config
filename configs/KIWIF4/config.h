@@ -21,8 +21,7 @@
 
 #pragma once
 
-// #define FC_TARGET_MCU STM32F405
-#define FC_TARGET_MCU STM32F427
+#define FC_TARGET_MCU STM32F405
 #define SYSTEM_HSE_MHZ 16
 
 #define BOARD_NAME KIWIF7
@@ -36,13 +35,15 @@
 
 
 
+#define USE_ESAD
 #define USE_GPS
 #define USE_POSITION_HOLD
+#define USE_ALTITUDE_HOLD
+#define USE_CHIRP
 
 #define USE_GYRO
 #define USE_ACC
 #define USE_BARO
-#define USE_ALTITUDE_HOLD
 #define USE_FLASH
 
 #define USE_RX_MSP
@@ -54,8 +55,6 @@
 
 #define USE_OSD
 #define USE_SERVOS
-#define USE_CHIRP
-
 
 #define USE_GYRO_SPI_ICM42688P
 #define USE_ACC_SPI_ICM42688P
@@ -75,6 +74,7 @@
 #define SERVO4_PIN PB10
 #define SERVO5_PIN PB1
 #define SERVO6_PIN PB0
+// #define SERVO7_PIN PB0
 
 #define UART1_TX_PIN PB6
 #define UART1_RX_PIN PB7
@@ -161,16 +161,16 @@
 
 #define TIMER_PIN_MAPPING   \
     TIMER_PIN_MAP( 0,  MOTOR1_PIN,  2,  0 ) \
-    TIMER_PIN_MAP( 1,  MOTOR2_PIN,  2,  1 ) \
-    TIMER_PIN_MAP( 2,  MOTOR3_PIN,  2,  1 ) \
-    TIMER_PIN_MAP( 3,  MOTOR4_PIN,  2,  1 ) \
+    TIMER_PIN_MAP( 1,  MOTOR2_PIN,  2,  0 ) \
+    TIMER_PIN_MAP( 2,  MOTOR3_PIN,  2,  0 ) \
+    TIMER_PIN_MAP( 3,  MOTOR4_PIN,  2,  0 ) \
     TIMER_PIN_MAP( 4,  SERVO1_PIN,  1, -1 ) \
     TIMER_PIN_MAP( 5,  SERVO2_PIN,  1, -1 ) \
     TIMER_PIN_MAP( 6,  SERVO3_PIN,  1, -1 ) \
     TIMER_PIN_MAP( 7,  SERVO4_PIN,  1, -1 ) \
     TIMER_PIN_MAP( 8,  SERVO5_PIN,  1, -1 ) \
-    TIMER_PIN_MAP( 9,  SERVO6_PIN,  1, -1 ) \
-    TIMER_PIN_MAP( 10, SERVO7_PIN,  1, -1 )
+    TIMER_PIN_MAP( 9,  SERVO6_PIN,  1, -1 )
+// TIMER_PIN_MAP( 10, SERVO7_PIN,  1, -1 )
 
 #define DEFAULT_BLACKBOX_DEVICE BLACKBOX_DEVICE_FLASH
 
@@ -186,8 +186,9 @@
 #define DEFAULT_RX_FEATURE      FEATURE_RX_SERIAL
 #define SERIALRX_PROVIDER       SERIALRX_CRSF
 
-#define VTX_SMARTAUDIO_UART     SERIAL_PORT_UART1
+#define ESAD_UART               SERIAL_PORT_UART1
 #define SERIALRX_UART           SERIAL_PORT_UART2
-
-#define MSP_UART                SERIAL_PORT_UART5
-#define ESC_SENSOR_UART         SERIAL_PORT_UART6
+#define GPS_UART                SERIAL_PORT_UART3
+#define VTX_SMARTAUDIO_UART     SERIAL_PORT_UART4
+#define ESC_SENSOR_UART         SERIAL_PORT_UART5
+// #define MSP_UART                SERIAL_PORT_UART5

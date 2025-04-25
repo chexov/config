@@ -37,14 +37,13 @@
 
 //#define USE_WING
 #define USE_ESAD
-
 #define USE_GPS
 #define USE_POSITION_HOLD
+#define USE_ALTITUDE_HOLD
 
 #define USE_GYRO
 #define USE_ACC
 #define USE_BARO
-#define USE_ALTITUDE_HOLD
 #define USE_FLASH
 
 #define USE_RX_MSP
